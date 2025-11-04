@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/", "destination": "/dock-address.html" },
+    { "source": "/docks/:address", "destination": "/dock-address.html" }
+  ]
+}
