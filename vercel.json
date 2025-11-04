@@ -1,6 +1,9 @@
 {
   "rewrites": [
-    { "source": "/", "destination": "/dock-address.html" },
-    { "source": "/docks/:address", "destination": "/dock-address.html" }
+    { "source": "/docks/zera", "destination": "https://tokendock-zera-dhyss0zct-boo-beards-projects.vercel.app" },
+    { "source": "/docks/zera/(.*)", "destination": "https://tokendock-zera-dhyss0zct-boo-beards-projects.vercel.app/$1" },
+
+    { "source": "/docks/zera/api", "destination": "https://tokendock-zera-dhyss0zct-boo-beards-projects.vercel.app/api" },
+    { "source": "/docks/zera/api/(.*)", "destination": "https://tokendock-zera-dhyss0zct-boo-beards-projects.vercel.app/api/$1" }
   ]
 }
