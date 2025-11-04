@@ -1,4 +1,13 @@
-const API_BASE = "/api/birdeye";
+// Works on tokendock-zera.vercel.app (=> /api/birdeye)
+// and on www.tokendock.io/docks/zera/ (=> /docks/zera/api/birdeye)
+const API_BASE = (() => {
+  try {
+    const m = location.pathname.match(/^\/docks\/[^/]+/);
+    return (m ? `${m[0]}/api/birdeye` : '/api/birdeye');
+  } catch {
+    return '/api/birdeye';
+  }
+})();
 const SUPPORTED_CHAINS = [
   "solana", "ethereum", "bsc", "base", "arbitrum", "polygon", "optimism", "avalanche", "sui"
 ];
@@ -253,8 +262,8 @@ async function fetchTokenOHLCV(addr, chain, interval = '1h', rangeHours = 48, us
   const now = Math.floor(Date.now() / 1000);
   const time_from = now - safeHours * 3600;
 
-const base = typeof window !== 'undefined' ? window.location.origin : 'https://www.tokendock.io';
-const url = new URL(base + `${API_BASE}`);
+const origin = (typeof window !== 'undefined' ? window.location.origin : 'https://www.tokendock.io');
+const url = new URL(API_BASE, origin);  // keeps /docks/zera prefix when mounted
 url.searchParams.set("path", "/defi/v3/ohlcv");
 url.searchParams.set("chain", chain);
 url.searchParams.set("address", addr);
