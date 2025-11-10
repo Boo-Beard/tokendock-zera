@@ -487,7 +487,7 @@ function renderDock(t, detectedChain) {
     mission.style.display = "none";
   }
   const links = [];
-  if (socials.twitter) links.push(`<a href="${socials.twitter}" target="_blank" class="social-link"><i class="fab fa-twitter"></i></a>`);
+  if (socials.twitter) links.push(`<a href="${socials.twitter}" target="_blank" class="social-link"><i class="fa-brands fa-x-twitter"></i></a>`);
   if (socials.telegram) links.push(`<a href="${socials.telegram}" target="_blank" class="social-link"><i class="fab fa-telegram"></i></a>`);
   if (socials.website) links.push(`<a href="${socials.website}" target="_blank" class="social-link"><i class="fa-solid fa-desktop"></i></a>`);
   if (socials.medium) links.push(`<a href="${socials.medium}" target="_blank" class="social-link"><i class="fab fa-medium"></i></a>`);
